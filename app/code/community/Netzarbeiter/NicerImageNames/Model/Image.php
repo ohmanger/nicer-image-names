@@ -81,7 +81,9 @@ class Netzarbeiter_NicerImageNames_Model_Image extends Mage_Catalog_Model_Produc
             if (Mage::getStoreConfig("catalog/nicerimagenames/lowercase")) {
                 $file = strtolower($file);
             }
-            $this->_newFile = $path . $file; // the $file contains heading slash
+            if (file_exists($path. $file)) {
+                $this->_newFile = $path . $file; // the $file contains heading slash
+            }
         }
         return $this;
     }
